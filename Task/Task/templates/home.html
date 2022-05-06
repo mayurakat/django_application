@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div{
+            padding-top: 10px;
+            margin-left: 600px;
+            margin-top: 100px;
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    {% include 'header.html'%}
+    {% if user.is_authenticated %}
+    <div>
+        <p>Name : {{user.name}}</p>
+        <p>E-mail : {{user.email}}</p>
+        <p>Mobile : {{user.mobile}}</p>
+        <p>DOB : {{user.DOB}}</p>
+    </div>
+    {%else%}
+    <div>
+        <p>Please login!</p>
+    </div>
+    
+    {%endif%}
+    <div>
+        {% for message in messages%}
+        <h1>{{message}}</h1>
+        {% endfor %}
+    </div>
+</body>
+</html>
